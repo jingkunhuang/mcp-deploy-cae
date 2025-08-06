@@ -16,7 +16,12 @@ spec:
     path: {{ .path | default .name | quote }}
     repoURL: {{ $config.spec.source.repoURL }}
     targetRevision: {{ $config.spec.source.targetRevision }}
+  ignoreDifferences:
+    - group: "cae.cisco.com"
+      kind: "RouteState"
   syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
     automated:
       prune: false
       selfHeal: true

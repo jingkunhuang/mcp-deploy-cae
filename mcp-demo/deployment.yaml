@@ -14,7 +14,7 @@ spec:
         app: mcp-demo      # Labels applied to created Pods
     spec:
       containers:
-        - image: containers.cisco.com/aicoding/mcp-hello:1234
+        - image: containers.cisco.com/aicoding/mcp-hello:3234
           name: mcp-demo
           ports:
             - containerPort: 8080

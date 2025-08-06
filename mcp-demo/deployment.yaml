@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-demo
+spec:
+  replicas: 1                    # Run 1 Pod instance
+  revisionHistoryLimit: 3        # Keep 3 old versions for rollbacks
+  selector:                      # How to find Pods to manage
+    matchLabels:
+      app: mcp-demo
+  template:                      # Pod template
+    metadata:
+      labels:
+        app: mcp-demo      # Labels applied to created Pods
+    spec:
+      containers:
+        - image: containers.cisco.com/aicoding/mcp-hello:1234
+          name: mcp-demo
+          ports:
+            - containerPort: 8080
+            

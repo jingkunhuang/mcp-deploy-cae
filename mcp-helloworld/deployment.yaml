@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-helloworld
+spec:
+  replicas: 1                    # Run 1 Pod instance
+  revisionHistoryLimit: 3        # Keep 3 old versions for rollbacks
+  selector:                      # How to find Pods to manage
+    matchLabels:
+      app: mcp-helloworld
+  template:                      # Pod template
+    metadata:
+      labels:
+        app: mcp-helloworld      # Labels applied to created Pods
+    spec:
+      containers:
+        - image: containers.cisco.com/skotaru/helloworld-go
+          name: mcp-helloworld
+          ports:
+            - containerPort: 80
+            

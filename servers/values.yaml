@@ -1,0 +1,12 @@
+config:
+  spec:
+    namespace: webex-shanghai-mcp-cae
+    destination:
+      server: https://kubernetes.default.svc
+    source:
+      repoURL: https://github.com/jingkunhuang/mcp-deploy-cae.git
+      targetRevision: main
+
+applications:
+  - name: mcp-demo
+  - name: mcp-helloworld

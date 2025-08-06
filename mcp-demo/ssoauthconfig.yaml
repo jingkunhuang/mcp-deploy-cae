@@ -1,0 +1,14 @@
+apiVersion: cae.cisco.com/v1
+kind: SSOAuthConfig
+metadata:
+  name: aicoding-mcp-demo.cisco.com              # same as route.yaml spec.host
+  namespace: webex-shanghai-mcp-cae
+spec:
+  contexts:
+    - context: /
+      contextMatch: prefix
+      policyType: public                         # disable sso for all paths
+  provider:
+    cors: platform
+    idp: duo
+    sso: platform
